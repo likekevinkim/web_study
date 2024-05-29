@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>form태그를 사용하여 서버로 값 전달하기 1</title>
+		
+		<script>
+			function check(){
+				let f = document.forms[0]; //forms는 body안에 있는 모든 form태그들을 배역 구조로 가져오는 속성
+				
+				//form태그에서 name속성이 00으로 지정된 태그의 value값을 가져올께
+				//form태그 내용은 아래 내용이 없어도 다 넘어가지만, 유효성 체크를 위해 아래 내용이 필요하다.
+				let id = f.id.value;
+				let pwd = f.pwd.value;
+				let ta = f.ta.value;
+				let select = f.select.value;
+				
+				alert(id + pwd + ta + select);
+				
+				//form태그의 정보들을 가지고 전환하고 싶은 페이지를 action으로 지정
+				f.action = "signup.jsp";
+				
+				//form태그의 정보를 가지고 signup.jsp로 데이터를 전송
+				f.submit();
+				
+			}
+		</script>
+		
+	</head>
+	
+	<body>
+		<!--form1-->
+		<form>
+			<input name="age">
+			
+			<!--a태그는 form태그의 공식적인 자식 요소가 아니므로, name 속성을 넣어도 파라미터로 전달되지 않는다-->
+			<a href="#" name="link_a">나는 링크</a>
+			
+			<table border="1">
+				<tr>
+					<th>아이디</th>
+					<td><input name="id"></td>
+				</tr>
+				
+				<tr>
+					<th>비밀번호</th>
+					<td><input type="password" name="pwd"></td>
+				</tr>
+				
+				<tr>
+					<td colspan="2" align="center">
+						<input type="button" value="폼 체크" onclick="check();">
+					</td>
+				</tr>
+				
+			</table>
+			
+			<textarea name="ta" rows="5" cols="50">나는 텍스트에어리어</textarea><br>
+			
+			<select name="select">
+				<option value="menu1">메뉴1</option>
+				<option value="menu2">메뉴2</option>
+			</select>
+		</form>
+		
+		<!--form2-->
+		<form>
+			
+		</form>
+	</body>
+
+</html>

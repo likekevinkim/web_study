@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		<style>
+			.number{width: 50px;}
+			option{width: 50px;}
+		</style>
+		
+		<script>
+			
+			let opt_array = ["더하기(+)", "빼기(-)" , "곱하기(*)", "나누기(/)"];
+			let opt_value_array = ['+', '-', '*', '/'];
+			
+			window.onload = function(){
+				let operator = document.getElementById("operator");
+				
+				for(let i = 0; i < opt_array.length; i++){
+					let option = document.createElement("option");
+					option.innerHTML = opt_array[i];
+					option.value = opt_value_array[i];
+					
+					operator.appendChild(option);
+				}
+			}
+			
+			function calculate(){
+				let num1 = document.getElementById("num1").value.trim();
+				let num2 = document.getElementById("num2").value.trim();
+				let operator = document.getElementById("operator").value;
+				let result = document.getElementById("result");
+				
+				//결과값 담는 res 준비				
+				let res;
+				
+				let numbers = /^[0-9]*$/;
+					if(!numbers.test(num1) || !numbers.test(num2) ){
+						alert("정수를 입력하세요.");
+						return;
+					}
+					
+					if(num1 == "" || num2 == ""){
+						alert("두개의 입력상자를 모두 채워야 합니다.")
+						return;
+					}
+				
+				
+				//소수점이 최대 2자리인지까지인지를 판단하는 정규식
+				let floatPattern = /^(\d*)[\.]?(\d{1,2})?$/;
+				
+				
+				switch(operator){
+					case '+' : res = Number(num1) + Number(num2);
+					break;
+					
+					case '-': res = num1 - num2;
+					break;
+					
+					case '*': res = num1 * num2;
+					break;
+					
+					case '/': res = num1 / num2;
+					if(num2 == 0){
+						alert("0으로 나눌 수 없습니다.")
+						return;
+					}
+					
+					//연산결과인 result가 소수점 2자리를 넘어 간다면 if로
+					if ( !floatPattern.test(res)){
+						res = res.toFixed(2);
+						return;
+					}
+					break;
+				}
+				
+				result.innerHTML = "결과 : " + res;
+				 
+			}
+			
+			
+				
+		</script>
+		
+	</head>
+	
+	<body>
+		<input id="num1" class="number" placeholder="정수1">
+		<input id="num2" class="number" placeholder="정수2">
+		<select id="operator">
+			<option value="">::연산자를 고르세요::</option>
+
+		</select>
+		<input type="button" value="실행" onclick="calculate()">
+		<br>
+		<p id="result"></p>
+	</body>
+
+</html>

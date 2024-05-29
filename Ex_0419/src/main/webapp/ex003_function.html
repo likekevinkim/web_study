@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>자바스크립트 함수</title>
+		
+		<script>
+			//자바스크립트의 함수(메서드)
+			function greet(){
+				alert("버튼1 누름");
+			}
+			
+			//함수 밖에서 요소를 검색하는 것은 불가능
+			//let a = document.getElementById("myInput");
+			
+			function greet2(s){
+				//alert(s);
+				
+				//body에 존재하는 특정 요소를 Id로 검색
+				let a = document.getElementById("myInput");
+				a.value = s;
+				
+				//let btn = document.getElementById("btn2"); -> tag
+				//alert(btn.value);
+				
+				let btn = document.getElementById("btn2").value; // -> 값
+				alert(btn);
+			}
+			
+			function m_set(){
+				let myP = document.getElementById("myP");
+				myP.style.color = "red";
+			}
+			
+			function send(){
+				let txt = document.getElementById("txt").value;
+				let res = document.getElementById("res");
+				
+				//무결성(유효성) 체크
+				if(txt.trim() == ''){
+					alert("값을 입력하세요.");
+					return;
+				}
+				
+				res.value = txt;
+				
+				let div = document.getElementById("div");
+				//div.innerHTML = txt;
+				div.textContent = txt; //textContent는 br 인식 안됨
+			}		
+		</script>
+		
+	</head>
+	
+	<body>
+		<input type="button" value="버튼1" onclick="greet();">
+		<input id="btn2" type="button" value="버튼2" onclick="greet2('하이');"><br>
+		<input id="myInput" size="5" value="기본값">
+		
+		<p id="myP">안녕하세요</p>
+		<input type="button" value="버튼3" onclick="m_set();">
+		
+		<hr>
+		
+		<input id="txt" size="5" placeholder="input data">
+		<input type="button" value="확인" onclick="send();"><br>
+		<input id="res">
+		<div id="div"></div>
+	</body>
+
+</html>

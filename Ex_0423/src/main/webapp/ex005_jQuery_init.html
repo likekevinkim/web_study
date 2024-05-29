@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		<!--jQuery : 자바스크립트를 좀 더 사용하기 용이하도록 설계해둔 일종의 라이브러리-->
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		
+		<script>
+			//초기화 영역 세팅방법 1
+			$(document).ready(function(){
+				alert("최초실행되는 영역");
+				
+				//document.body
+				$("body").css("background", "red");
+			});
+			
+			//초기화 영역 세팅방법 2
+			//$(function(){
+			//	
+			//});
+		</script>
+		
+	</head>
+	
+	<body>
+	
+	</body>
+
+</html>

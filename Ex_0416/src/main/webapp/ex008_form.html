@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		<link rel="stylesheet" herf="css/reset.css">
+		
+		<style>
+		
+		
+		</style>
+		
+	</head>
+	
+	<body>
+		<!--form 태그를 쓰면 name 속성에 저장된 값을 파라미터로 보낼 수 있다.
+				특정 파라미터를 원하는 페이지로 전달하기 위한 태그-->
+		<form action="abc.html">
+			
+			ID : <input text="text" size="20" value="안녕" name="myId"><br>
+			PWD : <input type="password" placeholder="비밀번호를 입력하시오" name="myPwd">
+			
+			<hr>
+			
+			이메일 수신 여부 :
+			<input type="radio" value="y" name="email">예
+			<input type="radio" value="n" name="email">아니오
+			
+			<hr>
+			
+			관심분야 : <br>
+			<input type="checkbox" value="HTML" name="chk1">HTML<br>
+			<input type="checkbox" value="JavaScript" name="chk1">Js<br>
+			
+			<hr>
+			
+			업로드 : 
+			<input type="file">
+			
+			<br><br>
+			
+			<input type="submit" value="가입하기">
+			
+			
+		</form>
+	</body>
+
+</html>

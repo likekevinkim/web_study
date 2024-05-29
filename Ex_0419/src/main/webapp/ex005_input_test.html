@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		<script>
+			function submit(){
+				let name = document.getElementById("name").value;
+				let age = document.getElementById("age").value;
+				
+				if(name.trim() == '' || age.trim( ) == ''){
+					alert("값을 입력하세요");
+					return;
+				}
+				
+						
+				alert("이름 : " + name + "\n나이 : " + age);
+			}
+		</script>
+		
+	</head>
+	
+	<body>
+		<input id="name" placeholder="이름"><br>
+		<input id="age" placeholder="나이"><br>
+		<input type="button" value="제출" onclick="submit();">
+	</body>
+
+</html>

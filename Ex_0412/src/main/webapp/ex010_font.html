@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>font</title>
+		
+		
+		<style>
+			
+			/*글자크기*/
+			.a1{font-size: 20px;}
+			
+			/*글자 기울이기*/
+			.a2{font-style: italic;}
+			
+			/*글자 두껍게*/
+			.a3{font-weight: bold;}
+			
+			/*폰트 패밀리 : 브라우저에서 적용 안될 수 있으니 여러개 준비(하나만해도 되긴함)
+			여러개의 글꼴을 준비해두고, 브라우저에서 지원되는 글꼴을 골라서 사용할 수 있도록 해주는 속성*/
+			.a4{font-family: "궁서", "굴림", sans-serif;}
+			
+			/*대문자를 소문자사이즈로, 소문자를 대문자로*/
+			.a5{font-variant: small-caps;}
+			
+			/*간략화 순서 : weight, style, variant, size, font-family : 빼고 해도 되나 순서바뀌면 안됨*/
+			.a6{font : bold italic small-caps 30px "돋움", "굴림";}
+			
+			.a7{font : bold 30px "돋움", "굴림";}
+			
+			.a8{font : 30px italic bold small-caps "돋움", "굴림";}
+		</style>
+		
+	</head>
+	
+	<body>
+		<p class="a1">font 연습</p>
+		<p class="a2">font 연습</p>
+		<p class="a3">font 연습</p>
+		<p class="a4">font 연습</p>
+		<p class="a5">The end</p>
+		
+		<p class="a6">간략화 적용</p>
+		<p class="a7">간략화 적용</p>
+		<p class="a8">간략화 적용</p>
+	</body>
+
+</html>

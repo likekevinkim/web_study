@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>margin(바깥쪽 여백)</title>
+		
+		<style>
+			p{border: 3px dashed blue;}
+			
+			div{border: 5px solid red;
+			width: 200px;}
+			
+			.box1{margin:20px;} /*상하좌우*/
+			.box2{margin:20px 50px;} /*상하,좌우*/
+			.box3{margin:30px 50px 60px;}/*상,좌우,하 아래위 박스 마진이 겹치면 큰수치값이 작은수치값을 먹음*/
+			.box4{margin:20px 30px 50px 70px;} /*상, 우 , 하, 좌*/
+								
+		</style>
+		
+	</head>
+	
+	<body>
+		<p>나는 p</p>
+		<p>나는 p</p>
+		
+		<div class="box1">margin 속성 연습</div>
+		<div class="box2">margin 속성 연습</div>
+		<div class="box3">margin 속성 연습</div>
+		<div class="box4">margin 속성 연습</div>
+	</body>
+
+</html>

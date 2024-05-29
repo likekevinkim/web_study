@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style>
+			#result{color:red;}
+		</style>
+		<script>
+			//1 ~ 100 사이의 난수
+			let rnd = Math.floor(Math.random() * 100) + 1;
+			
+			let log_txt = "";
+			
+			function check(){
+			
+			let input_num = document.getElementById("guess");
+			let guess = input_num.value.trim();
+			
+			let log = document.getElementById("log");
+			
+			//숫자 판단 정규식(최대 세자리)
+			let regex = /^[0-9]{1,3}$/;
+				if(!regex.test(guess) || guess > 100){
+					alert("정수를 입력해야하며, 최대값은 100입니다.");
+					return;
+				}
+			
+			let result = document.getElementById('result');
+			
+				if(guess > rnd){
+					result.innerHTML="입력값이 큽니다."
+				}else if(guess < rnd){
+					result.innerHTML="입력값이 작습니다."
+				}else{
+					result.innerHTML="정답."
+				}
+			log_txt += guess + " ";
+			log.innerHTML = log_txt;
+			}
+
+		</script>
+		
+	</head>
+	
+	<body>
+		1~100 사이의 숫자 중 하나를 입력해서 정답을 맞혀보세요.<br>
+		<input id="guess">
+		<input type="button" value="확인" onclick="check();">
+		<div id="log"></div>
+		<div id="result"></div>
+	</body>
+
+</html>

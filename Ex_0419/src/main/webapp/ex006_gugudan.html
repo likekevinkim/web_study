@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		
+		<script>
+			function cal(){
+				
+				let dan = document.getElementById("dan").value;
+				//정규식
+				//특정한 규칙을 가진 문자열의 집합
+				
+				//정수를 판단하는 정규식
+				let regex = /^[0-9]*$/;
+				if(!regex.test(dan) || dan.trim() == ''){ //입력받은 dan이 정수구조가 아닌 경우
+					alert("정수만 입력하세요");
+					return;
+				}
+				
+				let str="";
+								
+				for(let i = 1; i <= 9; i++){
+						str = str + dan + "*" + i + "=" + (dan * i) + "<br>";
+				}
+				
+				let gugu = document.getElementById("gugu");
+				gugu.innerHTML = str;
+				
+				}
+				//삼항연산자, 플래그
+				let b_show = true;
+				function hide(){
+					b_show = !b_show;
+					
+					let btn_show = document.getElementById("bt_show");
+					btn_show.value = b_show ? "숨기기" : "보이기";
+					
+					document.getElementById("gugu").style.display = b_show ? "block" : "none"; 
+				}
+			
+			//let click = 1;	
+			//function hide(){
+			//	click++;
+			//	
+			//	let gugu = document.getElementById("gugu");
+			//	if(click % 2 == 0){
+			//	gugu.style.display="none";
+			//	}else{
+			//		gugu.style.display="block";
+			//	}
+			//}					
+		</script>
+		
+		<style>
+			hr{width:300px; margin:10px 0;}
+			#gugu{width:280px; height:280px; padding:10px; background-color: black; color:white;}
+		</style>
+		
+	</head>
+	
+	<body>
+		단 : <input id="dan">
+		<input type="button" value="계산하기" onclick="cal();">
+		<input type="button" value="숨기기" id="bt_show" onclick="hide();">
+		<hr>
+		<div id="gugu"></div>
+	</body>
+
+</html>

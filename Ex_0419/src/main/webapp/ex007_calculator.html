@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		<style>
+			
+			table{border-collapse: collapse;}
+			
+			th{width: 50px;}
+			
+			td{width: 100px;}
+			
+			.in input{width:30px; height:30px; margin:5px; padding: 5px; text-align: center; vertical-align: middle;}
+			
+			#num1{border-style: none; outline: none;}
+			
+			#num2{border-style: none; outline: none;}
+			
+			#res{border-style: none; outline: none;}
+			
+			#con{margin: 5px;}
+			
+			
+		</style>
+		
+		<script>
+			function operator(symbol){
+				let num1 = document.getElementById("num1").value.trim();
+				let num2 = document.getElementById("num2").value.trim();
+				
+				//정수만 입력 가능한지 유효성 체크
+				let regex = /^[0-9]*$/;
+				if(!regex.test(num1) || num1 == '' || !regex.test(num2) || num2 == ''){
+					alert("정수만 입력하세요");
+					return;
+				}
+				
+				let res = document.getElementById("res");
+
+				
+				res.value = symbol;
+				
+				switch(symbol){
+					case '+': res.value = Number(num1) + Number(num2);
+					break;
+					
+					case '-': res.value = num1 - num2;
+					break;
+					
+					case '*': res.value = num1 * num2;
+					break;
+					
+					case '/': res.value = num1 / num2;
+							  res.value = (num2 == 0) ? 0 : (num1/num2).toFixed(2);
+					break;
+					
+					}
+					
+					prevResult = res.value;
+					
+				
+			}
+			
+			function continueCalculation() {
+            document.getElementById("num1").value = prevResult;
+            document.getElementById("num2").value = "";
+            document.getElementById("res").value = "";
+            }
+			
+		</script>
+		
+	</head>
+	
+	<body>
+		<h3>기깔나는 계산기</h3>
+		<table border="1">
+			<tr>
+				<th>수1</th>
+				<td><input id="num1"></td>
+			</tr>
+			
+			<tr>
+				<th>수2</th>
+				<td><input id="num2"></td>
+			</tr>
+		</table>
+		
+		<div class="in">
+		<input type="button" value="+" onclick="operator('+');">
+		<input type="button" value="-" onclick="operator('-');">
+		<input type="button" value="*" onclick="operator('*');">
+		<input type="button" value="/" onclick="operator('/');">
+		</div>
+		
+		<table border="1">
+			<tr>
+				<th>결과</th>
+				<td><input id="res" readonly="true"></td>
+			</tr>
+		</table>
+		
+		<input type="button" value="계속" id ="con" onclick="continueCalculation();">
+		
+	</body>
+
+</html>

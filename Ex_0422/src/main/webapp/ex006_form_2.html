@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		<script>
+			function check(){
+			let f = document.getElementById("ff");
+			
+			let age = f.age.value;
+			
+			let pat = /^[0-9]*$/;
+			if(!pat.tst(age)){
+				alert("나이는 정수입니다.");
+				return;
+			}
+
+			//f.action = "signup.jsp";
+			//method(전송방식):
+			//1) get방식 : url에 모든 정보가 노출, 보안에 취약 - 속도가 빠름
+			//2) post방식 : ulr에 정보노출 안됨, 보안 강화 - 속도 느림
+			f.submit();				
+			}
+		</script>
+		
+	</head>
+	
+	<body>
+		<!--method(전송방식)의 방식이 default 값이 get인데 그냥가면 url에 다 나타남. post 방식이면 나타나지않음-->
+		<form id="ff" action="signup.jsp" method="post">
+			<input name="id"><br>
+			<input name="age"><br>
+			<input name="pwd" type="password"><br>
+			<input type="button" value="확인" onclick="check();">
+		</form>
+	</body>
+
+</html>

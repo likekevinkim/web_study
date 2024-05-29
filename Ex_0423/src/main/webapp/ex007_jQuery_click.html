@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		
+		<script>
+		
+		
+/*				$("#plus").click(plus_f);
+
+				$("#plus").click(function(){
+					let n1 = $("#num1").val();
+					let n2 = $("#num2").val();
+					
+					let result = Number(n1) + Number(n2);
+					$("#result").val(result);
+					
+				});
+			}); 
+			
+
+//		function plus_f(){
+//			let num1 = document.getElementById("num1").value;
+//			let num2 = document.getElementById("num2").value;
+//			let result = document.getElementById("result");
+//			
+//			let numbers = /^[0-9]*$/;
+//					if(!numbers.test(num1) || !numbers.test(num2) ){
+//						alert("정수를 입력하세요.");
+//						return;
+//					}
+//					
+//			result.value = Number(num1) + Number(num2)
+//			
+//		} */
+
+		$(function(){
+			$("#plus, #minus, #mult, #div").click(function(){
+				calc($(this));
+			});
+		});
+				
+				function calc(btn){
+				//	alert(btn.val());
+					
+					let n1 = $("#num1").val();
+					let n2 = $("#num2").val();
+					
+					let result;
+					
+					switch(btn.val()){
+						case "합" :
+						result = Number(n1) + Number(n2);
+						break;
+	
+						case "차" :
+						result = n1 - n2;
+						break;
+	
+						case "곱" :
+						result = n1 * n2;
+						break;
+	
+						case "분" :
+						result = n1 / n2;
+						break;
+					} 
+					
+					$("#result").val(result);
+				}
+		
+	</script>
+		
+			
+	</head>
+	
+	<body>
+		<input id="num1" size="5">
+		<input id="num2" size="5"> =
+		<input id="result" size="5">
+		
+		<br>
+		
+		<input type="button" id="plus" value="합">
+		<input type="button" id="minus" value="차">
+		<input type="button" id="multi" value="곱">
+		<input type="button" id="div" value="분">
+	</body>
+
+</html>
